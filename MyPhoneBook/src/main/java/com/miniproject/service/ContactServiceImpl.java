@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @org.springframework.stereotype.Service
-public class Service implements ContactService{
+public class ContactServiceImpl implements ContactService{
     @Autowired
     private ContactRepository contactrepo;
     @Override
@@ -63,7 +63,7 @@ public class Service implements ContactService{
     }
 
     @Override
-    public List<Contact> filterContact(String contactName) {
+    public List<Contact> filterContact() {
         List<Contact> contactNames = contactrepo.findAll(Sort.by("contactName"));
         return contactNames;
     }

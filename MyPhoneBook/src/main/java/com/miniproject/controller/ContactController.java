@@ -23,7 +23,7 @@ public class ContactController {
     }
     //localhost:8080/viewAllContacts
     @GetMapping(
-            value = "/viewAllContacts"
+            value = "/contacts"
     )
     public List<Contact> viewAllContacts(){
         List<Contact> contacts = contactService.viewContact();
@@ -31,7 +31,7 @@ public class ContactController {
     }
     //localhost:8080/viewAllContact/contactId
     @GetMapping(
-            value = "/viewAllContact/{contactId}"
+            value = "/Contact/{contactId}"
     )
     public Contact contactById(@PathVariable Integer contactId){
 
@@ -48,7 +48,7 @@ public class ContactController {
     }
     //localhost:8080/deleterecord/contactId
     @DeleteMapping(
-            value = "/deleterecord/{contactId}"
+            value = "/contact/{contactId}"
     )
     public String deleteRecord(@PathVariable Integer contactId){
         String s = contactService.deleteContactById(contactId);
@@ -56,8 +56,8 @@ public class ContactController {
     }
     //localhost:8080/sortContacts
     @GetMapping("/sortContacts")
-    public List<Contact> sortContacts(String contactName){
-        List<Contact> contacts = contactService.filterContact(contactName);
+    public List<Contact> sortContacts(){
+        List<Contact> contacts = contactService.filterContact();
         return contacts;
     }
 
